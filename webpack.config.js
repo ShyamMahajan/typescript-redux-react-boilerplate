@@ -14,14 +14,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
-      },
-      {
-        test: /\.tsx$/,
-        exclude: /node_modules/,
-        loader : "babel-loader"
+        options: {
+          // presets: ["@babel/env"],
+          presets: [
+            "@babel/preset-react",
+            "@babel/preset-typescript",
+          ],
+        },
       }
     ],
   },
